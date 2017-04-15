@@ -1,6 +1,6 @@
 package com.liang.deng.model;
 
-public class eluCommodityBlKey {
+public class EluCommodityBlKey {
     private Integer routeCode;
 
     private Integer sNo;

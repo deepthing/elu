@@ -32,14 +32,14 @@
 			<property name="enableSubPackage" value="true"/>
 		</javaClientGenerator>
 		
-		<table tableName="elu_commodity_bl" domainObjectName="eluCommodityBl" 
+		<table tableName="elu_commodity_bl" domainObjectName="EluCommodityBl" 
 			enableCountByExample="false" enableDeleteByExample="false"
 			enableSelectByExample ="false" enableUpdateByExample="false"
 			enableUpdateByPrimaryKey="false" enableDeleteByPrimaryKey="false"
 			selectByExampleQueryId ="true" selectByPrimaryKeyQueryId="false" >
 		</table>
 	
-			<table tableName="elu_commodity_hscode_info" domainObjectName="eluCommodityHscodeInfo" 
+			<table tableName="elu_commodity_hscode_info" domainObjectName="EluCommodityHscodeInfo" 
 			enableCountByExample="false" enableDeleteByExample="false"
 			enableSelectByExample ="false" enableUpdateByExample="false"
 			enableUpdateByPrimaryKey="false" enableDeleteByPrimaryKey="false"

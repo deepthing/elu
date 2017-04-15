@@ -2,7 +2,7 @@ package com.liang.deng.model;
 
 import java.util.Date;
 
-public class eluCommodityBl extends eluCommodityBlKey {
+public class EluCommodityBl extends EluCommodityBlKey {
     private Integer blCommodityHscode;
 
     private Date uploadTime;

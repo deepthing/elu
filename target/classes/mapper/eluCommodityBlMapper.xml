@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.liang.deng.dao.eluCommodityBlMapper" >
-  <resultMap id="BaseResultMap" type="com.liang.deng.model.eluCommodityBl" >
+<mapper namespace="com.liang.deng.dao.EluCommodityBlMapper" >
+  <resultMap id="BaseResultMap" type="com.liang.deng.model.EluCommodityBl" >
     <id column="route_code" property="routeCode" jdbcType="INTEGER" />
     <id column="s_no" property="sNo" jdbcType="INTEGER" />
     <result column="bl_commodity_hscode" property="blCommodityHscode" jdbcType="INTEGER" />
@@ -12,14 +12,14 @@
   <sql id="Base_Column_List" >
     route_code, s_no, bl_commodity_hscode, upload_time, create_time, del_flag
   </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="com.liang.deng.model.eluCommodityBlKey" >
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="com.liang.deng.model.EluCommodityBlKey" >
     select 'false' as QUERYID,
     <include refid="Base_Column_List" />
     from elu_commodity_bl
     where route_code = #{routeCode,jdbcType=INTEGER}
       and s_no = #{sNo,jdbcType=INTEGER}
   </select>
-  <insert id="insert" parameterType="com.liang.deng.model.eluCommodityBl" >
+  <insert id="insert" parameterType="com.liang.deng.model.EluCommodityBl" >
     insert into elu_commodity_bl (route_code, s_no, bl_commodity_hscode, 
       upload_time, create_time, del_flag
       )
@@ -27,7 +27,7 @@
       #{uploadTime,jdbcType=TIMESTAMP}, #{createTime,jdbcType=TIMESTAMP}, #{delFlag,jdbcType=BIT}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.liang.deng.model.eluCommodityBl" >
+  <insert id="insertSelective" parameterType="com.liang.deng.model.EluCommodityBl" >
     insert into elu_commodity_bl
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="routeCode != null" >

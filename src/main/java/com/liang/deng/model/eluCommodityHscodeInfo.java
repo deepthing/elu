@@ -2,7 +2,7 @@ package com.liang.deng.model;
 
 import java.math.BigDecimal;
 
-public class eluCommodityHscodeInfo {
+public class EluCommodityHscodeInfo {
     private String hsCode;
 
     private String goodsName;

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.liang.deng.dao.eluCommodityHscodeInfoMapper" >
-  <resultMap id="BaseResultMap" type="com.liang.deng.model.eluCommodityHscodeInfo" >
+<mapper namespace="com.liang.deng.dao.EluCommodityHscodeInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.liang.deng.model.EluCommodityHscodeInfo" >
     <id column="HS_CODE" property="hsCode" jdbcType="VARCHAR" />
     <result column="GOODS_NAME" property="goodsName" jdbcType="VARCHAR" />
     <result column="LICENSE_CODE" property="licenseCode" jdbcType="VARCHAR" />
@@ -24,7 +24,7 @@
     from elu_commodity_hscode_info
     where HS_CODE = #{hsCode,jdbcType=VARCHAR}
   </select>
-  <insert id="insert" parameterType="com.liang.deng.model.eluCommodityHscodeInfo" >
+  <insert id="insert" parameterType="com.liang.deng.model.EluCommodityHscodeInfo" >
     insert into elu_commodity_hscode_info (HS_CODE, GOODS_NAME, LICENSE_CODE, 
       GENERAL_RATES, PREFERENTIAL_TATE, REMARK, 
       EXPROT_TAX, CONSUMPTION_TAX, VALUE_ADDED_TAX, 
@@ -34,7 +34,7 @@
       #{exprotTax,jdbcType=DECIMAL}, #{consumptionTax,jdbcType=DECIMAL}, #{valueAddedTax,jdbcType=DECIMAL}, 
       #{unit1,jdbcType=VARCHAR}, #{unit2,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.liang.deng.model.eluCommodityHscodeInfo" >
+  <insert id="insertSelective" parameterType="com.liang.deng.model.EluCommodityHscodeInfo" >
     insert into elu_commodity_hscode_info
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="hsCode != null" >

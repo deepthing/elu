@@ -1,11 +1,11 @@
 package com.liang.deng.dao;
 
-import com.liang.deng.model.eluCommodityHscodeInfo;
+import com.liang.deng.model.EluCommodityHscodeInfo;
 
-public interface eluCommodityHscodeInfoMapper {
-    int insert(eluCommodityHscodeInfo record);
+public interface EluCommodityHscodeInfoMapper {
+    int insert(EluCommodityHscodeInfo record);
 
-    int insertSelective(eluCommodityHscodeInfo record);
+    int insertSelective(EluCommodityHscodeInfo record);
 
-    eluCommodityHscodeInfo selectByPrimaryKey(String hsCode);
+    EluCommodityHscodeInfo selectByPrimaryKey(String hsCode);
 }

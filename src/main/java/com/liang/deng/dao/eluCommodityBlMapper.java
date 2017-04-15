@@ -1,12 +1,12 @@
 package com.liang.deng.dao;
 
-import com.liang.deng.model.eluCommodityBl;
-import com.liang.deng.model.eluCommodityBlKey;
+import com.liang.deng.model.EluCommodityBl;
+import com.liang.deng.model.EluCommodityBlKey;
 
-public interface eluCommodityBlMapper {
-    int insert(eluCommodityBl record);
+public interface EluCommodityBlMapper {
+    int insert(EluCommodityBl record);
 
-    int insertSelective(eluCommodityBl record);
+    int insertSelective(EluCommodityBl record);
 
-    eluCommodityBl selectByPrimaryKey(eluCommodityBlKey key);
+    EluCommodityBl selectByPrimaryKey(EluCommodityBlKey key);
 }
