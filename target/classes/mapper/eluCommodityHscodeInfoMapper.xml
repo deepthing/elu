@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.liang.deng.dao.eluCommodityHscodeInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.liang.deng.model.eluCommodityHscodeInfo" >
+    <id column="HS_CODE" property="hsCode" jdbcType="VARCHAR" />
+    <result column="GOODS_NAME" property="goodsName" jdbcType="VARCHAR" />
+    <result column="LICENSE_CODE" property="licenseCode" jdbcType="VARCHAR" />
+    <result column="GENERAL_RATES" property="generalRates" jdbcType="DECIMAL" />
+    <result column="PREFERENTIAL_TATE" property="preferentialTate" jdbcType="DECIMAL" />
+    <result column="REMARK" property="remark" jdbcType="VARCHAR" />
+    <result column="EXPROT_TAX" property="exprotTax" jdbcType="DECIMAL" />
+    <result column="CONSUMPTION_TAX" property="consumptionTax" jdbcType="DECIMAL" />
+    <result column="VALUE_ADDED_TAX" property="valueAddedTax" jdbcType="DECIMAL" />
+    <result column="UNIT1" property="unit1" jdbcType="VARCHAR" />
+    <result column="UNIT2" property="unit2" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    HS_CODE, GOODS_NAME, LICENSE_CODE, GENERAL_RATES, PREFERENTIAL_TATE, REMARK, EXPROT_TAX, 
+    CONSUMPTION_TAX, VALUE_ADDED_TAX, UNIT1, UNIT2
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 'false' as QUERYID,
+    <include refid="Base_Column_List" />
+    from elu_commodity_hscode_info
+    where HS_CODE = #{hsCode,jdbcType=VARCHAR}
+  </select>
+  <insert id="insert" parameterType="com.liang.deng.model.eluCommodityHscodeInfo" >
+    insert into elu_commodity_hscode_info (HS_CODE, GOODS_NAME, LICENSE_CODE, 
+      GENERAL_RATES, PREFERENTIAL_TATE, REMARK, 
+      EXPROT_TAX, CONSUMPTION_TAX, VALUE_ADDED_TAX, 
+      UNIT1, UNIT2)
+    values (#{hsCode,jdbcType=VARCHAR}, #{goodsName,jdbcType=VARCHAR}, #{licenseCode,jdbcType=VARCHAR}, 
+      #{generalRates,jdbcType=DECIMAL}, #{preferentialTate,jdbcType=DECIMAL}, #{remark,jdbcType=VARCHAR}, 
+      #{exprotTax,jdbcType=DECIMAL}, #{consumptionTax,jdbcType=DECIMAL}, #{valueAddedTax,jdbcType=DECIMAL}, 
+      #{unit1,jdbcType=VARCHAR}, #{unit2,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.liang.deng.model.eluCommodityHscodeInfo" >
+    insert into elu_commodity_hscode_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="hsCode != null" >
+        HS_CODE,
+      </if>
+      <if test="goodsName != null" >
+        GOODS_NAME,
+      </if>
+      <if test="licenseCode != null" >
+        LICENSE_CODE,
+      </if>
+      <if test="generalRates != null" >
+        GENERAL_RATES,
+      </if>
+      <if test="preferentialTate != null" >
+        PREFERENTIAL_TATE,
+      </if>
+      <if test="remark != null" >
+        REMARK,
+      </if>
+      <if test="exprotTax != null" >
+        EXPROT_TAX,
+      </if>
+      <if test="consumptionTax != null" >
+        CONSUMPTION_TAX,
+      </if>
+      <if test="valueAddedTax != null" >
+        VALUE_ADDED_TAX,
+      </if>
+      <if test="unit1 != null" >
+        UNIT1,
+      </if>
+      <if test="unit2 != null" >
+        UNIT2,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="hsCode != null" >
+        #{hsCode,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsName != null" >
+        #{goodsName,jdbcType=VARCHAR},
+      </if>
+      <if test="licenseCode != null" >
+        #{licenseCode,jdbcType=VARCHAR},
+      </if>
+      <if test="generalRates != null" >
+        #{generalRates,jdbcType=DECIMAL},
+      </if>
+      <if test="preferentialTate != null" >
+        #{preferentialTate,jdbcType=DECIMAL},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="exprotTax != null" >
+        #{exprotTax,jdbcType=DECIMAL},
+      </if>
+      <if test="consumptionTax != null" >
+        #{consumptionTax,jdbcType=DECIMAL},
+      </if>
+      <if test="valueAddedTax != null" >
+        #{valueAddedTax,jdbcType=DECIMAL},
+      </if>
+      <if test="unit1 != null" >
+        #{unit1,jdbcType=VARCHAR},
+      </if>
+      <if test="unit2 != null" >
+        #{unit2,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

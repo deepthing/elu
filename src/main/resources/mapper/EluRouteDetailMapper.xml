@@ -3,7 +3,6 @@
 <mapper namespace="com.liang.deng.dao.EluRouteDetailMapper" >
   <resultMap id="BaseResultMap" type="com.liang.deng.model.EluRouteDetail" >
     <id column="route_code" property="routeCode" jdbcType="INTEGER" />
-    <id column="s_no" property="sNo" jdbcType="INTEGER" />
     <result column="route_name" property="routeName" jdbcType="VARCHAR" />
     <result column="route_comment" property="routeComment" jdbcType="VARCHAR" />
     <result column="supplier" property="supplier" jdbcType="VARCHAR" />
@@ -27,32 +26,31 @@
     <result column="del_flag" property="delFlag" jdbcType="BIT" />
   </resultMap>
   <sql id="Base_Column_List" >
-    route_code, s_no, route_name, route_comment, supplier, supplier_Method, location_from, 
+    route_code, route_name, route_comment, supplier, supplier_Method, location_from, 
     location_to, min_cycle_time, max_cycle_time, bl_commodity_group, wl_commodity_group, 
     lost_percentage, damage_percenteage, success_percenteage, user_rating, min_weight, 
     max_weight, min_volume, max_volume, creat_time, update_time, del_flag
   </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="com.liang.deng.model.EluRouteDetailKey" >
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 'false' as QUERYID,
     <include refid="Base_Column_List" />
     from elu_route_detail
     where route_code = #{routeCode,jdbcType=INTEGER}
-      and s_no = #{sNo,jdbcType=INTEGER}
   </select>
   <insert id="insert" parameterType="com.liang.deng.model.EluRouteDetail" >
-    insert into elu_route_detail (route_code, s_no, route_name, 
-      route_comment, supplier, supplier_Method, 
-      location_from, location_to, min_cycle_time, 
-      max_cycle_time, bl_commodity_group, wl_commodity_group, 
-      lost_percentage, damage_percenteage, success_percenteage, 
+    insert into elu_route_detail (route_code, route_name, route_comment, 
+      supplier, supplier_Method, location_from, 
+      location_to, min_cycle_time, max_cycle_time, 
+      bl_commodity_group, wl_commodity_group, lost_percentage, 
+      damage_percenteage, success_percenteage, 
       user_rating, min_weight, max_weight, 
       min_volume, max_volume, creat_time, 
       update_time, del_flag)
-    values (#{routeCode,jdbcType=INTEGER}, #{sNo,jdbcType=INTEGER}, #{routeName,jdbcType=VARCHAR}, 
-      #{routeComment,jdbcType=VARCHAR}, #{supplier,jdbcType=VARCHAR}, #{supplierMethod,jdbcType=VARCHAR}, 
-      #{locationFrom,jdbcType=VARCHAR}, #{locationTo,jdbcType=VARCHAR}, #{minCycleTime,jdbcType=TIMESTAMP}, 
-      #{maxCycleTime,jdbcType=TIMESTAMP}, #{blCommodityGroup,jdbcType=VARCHAR}, #{wlCommodityGroup,jdbcType=VARCHAR}, 
-      #{lostPercentage,jdbcType=DECIMAL}, #{damagePercenteage,jdbcType=DECIMAL}, #{successPercenteage,jdbcType=DECIMAL}, 
+    values (#{routeCode,jdbcType=INTEGER}, #{routeName,jdbcType=VARCHAR}, #{routeComment,jdbcType=VARCHAR}, 
+      #{supplier,jdbcType=VARCHAR}, #{supplierMethod,jdbcType=VARCHAR}, #{locationFrom,jdbcType=VARCHAR}, 
+      #{locationTo,jdbcType=VARCHAR}, #{minCycleTime,jdbcType=TIMESTAMP}, #{maxCycleTime,jdbcType=TIMESTAMP}, 
+      #{blCommodityGroup,jdbcType=VARCHAR}, #{wlCommodityGroup,jdbcType=VARCHAR}, #{lostPercentage,jdbcType=DECIMAL}, 
+      #{damagePercenteage,jdbcType=DECIMAL}, #{successPercenteage,jdbcType=DECIMAL}, 
       #{userRating,jdbcType=INTEGER}, #{minWeight,jdbcType=DECIMAL}, #{maxWeight,jdbcType=DECIMAL}, 
       #{minVolume,jdbcType=DECIMAL}, #{maxVolume,jdbcType=DECIMAL}, #{creatTime,jdbcType=TIMESTAMP}, 
       #{updateTime,jdbcType=TIMESTAMP}, #{delFlag,jdbcType=BIT})
@@ -62,9 +60,6 @@
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="routeCode != null" >
         route_code,
-      </if>
-      <if test="sNo != null" >
-        s_no,
       </if>
       <if test="routeName != null" >
         route_name,
@@ -133,9 +128,6 @@
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="routeCode != null" >
         #{routeCode,jdbcType=INTEGER},
-      </if>
-      <if test="sNo != null" >
-        #{sNo,jdbcType=INTEGER},
       </if>
       <if test="routeName != null" >
         #{routeName,jdbcType=VARCHAR},

@@ -2,7 +2,9 @@ package com.liang.deng.model;
 
 import java.util.Date;
 
-public class EluRouteDetail extends EluRouteDetailKey {
+public class EluRouteDetail {
+    private Integer routeCode;
+
     private String routeName;
 
     private String routeComment;
@@ -44,6 +46,14 @@ public class EluRouteDetail extends EluRouteDetailKey {
     private Date updateTime;
 
     private Boolean delFlag;
+
+    public Integer getRouteCode() {
+        return routeCode;
+    }
+
+    public void setRouteCode(Integer routeCode) {
+        this.routeCode = routeCode;
+    }
 
     public String getRouteName() {
         return routeName;

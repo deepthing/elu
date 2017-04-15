@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.liang.deng.dao.eluCommodityBlMapper" >
+  <resultMap id="BaseResultMap" type="com.liang.deng.model.eluCommodityBl" >
+    <id column="route_code" property="routeCode" jdbcType="INTEGER" />
+    <id column="s_no" property="sNo" jdbcType="INTEGER" />
+    <result column="bl_commodity_hscode" property="blCommodityHscode" jdbcType="INTEGER" />
+    <result column="upload_time" property="uploadTime" jdbcType="TIMESTAMP" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="del_flag" property="delFlag" jdbcType="BIT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    route_code, s_no, bl_commodity_hscode, upload_time, create_time, del_flag
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="com.liang.deng.model.eluCommodityBlKey" >
+    select 'false' as QUERYID,
+    <include refid="Base_Column_List" />
+    from elu_commodity_bl
+    where route_code = #{routeCode,jdbcType=INTEGER}
+      and s_no = #{sNo,jdbcType=INTEGER}
+  </select>
+  <insert id="insert" parameterType="com.liang.deng.model.eluCommodityBl" >
+    insert into elu_commodity_bl (route_code, s_no, bl_commodity_hscode, 
+      upload_time, create_time, del_flag
+      )
+    values (#{routeCode,jdbcType=INTEGER}, #{sNo,jdbcType=INTEGER}, #{blCommodityHscode,jdbcType=INTEGER}, 
+      #{uploadTime,jdbcType=TIMESTAMP}, #{createTime,jdbcType=TIMESTAMP}, #{delFlag,jdbcType=BIT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.liang.deng.model.eluCommodityBl" >
+    insert into elu_commodity_bl
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="routeCode != null" >
+        route_code,
+      </if>
+      <if test="sNo != null" >
+        s_no,
+      </if>
+      <if test="blCommodityHscode != null" >
+        bl_commodity_hscode,
+      </if>
+      <if test="uploadTime != null" >
+        upload_time,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="routeCode != null" >
+        #{routeCode,jdbcType=INTEGER},
+      </if>
+      <if test="sNo != null" >
+        #{sNo,jdbcType=INTEGER},
+      </if>
+      <if test="blCommodityHscode != null" >
+        #{blCommodityHscode,jdbcType=INTEGER},
+      </if>
+      <if test="uploadTime != null" >
+        #{uploadTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+</mapper>

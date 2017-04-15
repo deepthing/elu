@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.liang.deng.dao.EluRoutePriceMapper" >
+  <resultMap id="BaseResultMap" type="com.liang.deng.model.EluRoutePrice" >
+    <id column="route_code" property="routeCode" jdbcType="INTEGER" />
+    <id column="s_no" property="sNo" jdbcType="INTEGER" />
+    <result column="unit_price" property="unitPrice" jdbcType="DECIMAL" />
+    <result column="currency_code" property="currencyCode" jdbcType="VARCHAR" />
+    <result column="price_method" property="priceMethod" jdbcType="VARCHAR" />
+    <result column="min_quantity" property="minQuantity" jdbcType="DECIMAL" />
+    <result column="max_quantity" property="maxQuantity" jdbcType="DECIMAL" />
+    <result column="unit_quantity" property="unitQuantity" jdbcType="DECIMAL" />
+    <result column="uom" property="uom" jdbcType="VARCHAR" />
+    <result column="tax_included" property="taxIncluded" jdbcType="VARCHAR" />
+    <result column="bef_included" property="befIncluded" jdbcType="VARCHAR" />
+    <result column="insurance_included" property="insuranceIncluded" jdbcType="VARCHAR" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="del_flag" property="delFlag" jdbcType="BIT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    route_code, s_no, unit_price, currency_code, price_method, min_quantity, max_quantity, 
+    unit_quantity, uom, tax_included, bef_included, insurance_included, update_time, 
+    create_time, del_flag
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="com.liang.deng.model.EluRoutePriceKey" >
+    select 'false' as QUERYID,
+    <include refid="Base_Column_List" />
+    from elu_route_price
+    where route_code = #{routeCode,jdbcType=INTEGER}
+      and s_no = #{sNo,jdbcType=INTEGER}
+  </select>
+  <insert id="insert" parameterType="com.liang.deng.model.EluRoutePrice" >
+    insert into elu_route_price (route_code, s_no, unit_price, 
+      currency_code, price_method, min_quantity, 
+      max_quantity, unit_quantity, uom, 
+      tax_included, bef_included, insurance_included, 
+      update_time, create_time, del_flag
+      )
+    values (#{routeCode,jdbcType=INTEGER}, #{sNo,jdbcType=INTEGER}, #{unitPrice,jdbcType=DECIMAL}, 
+      #{currencyCode,jdbcType=VARCHAR}, #{priceMethod,jdbcType=VARCHAR}, #{minQuantity,jdbcType=DECIMAL}, 
+      #{maxQuantity,jdbcType=DECIMAL}, #{unitQuantity,jdbcType=DECIMAL}, #{uom,jdbcType=VARCHAR}, 
+      #{taxIncluded,jdbcType=VARCHAR}, #{befIncluded,jdbcType=VARCHAR}, #{insuranceIncluded,jdbcType=VARCHAR}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{createTime,jdbcType=TIMESTAMP}, #{delFlag,jdbcType=BIT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.liang.deng.model.EluRoutePrice" >
+    insert into elu_route_price
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="routeCode != null" >
+        route_code,
+      </if>
+      <if test="sNo != null" >
+        s_no,
+      </if>
+      <if test="unitPrice != null" >
+        unit_price,
+      </if>
+      <if test="currencyCode != null" >
+        currency_code,
+      </if>
+      <if test="priceMethod != null" >
+        price_method,
+      </if>
+      <if test="minQuantity != null" >
+        min_quantity,
+      </if>
+      <if test="maxQuantity != null" >
+        max_quantity,
+      </if>
+      <if test="unitQuantity != null" >
+        unit_quantity,
+      </if>
+      <if test="uom != null" >
+        uom,
+      </if>
+      <if test="taxIncluded != null" >
+        tax_included,
+      </if>
+      <if test="befIncluded != null" >
+        bef_included,
+      </if>
+      <if test="insuranceIncluded != null" >
+        insurance_included,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="routeCode != null" >
+        #{routeCode,jdbcType=INTEGER},
+      </if>
+      <if test="sNo != null" >
+        #{sNo,jdbcType=INTEGER},
+      </if>
+      <if test="unitPrice != null" >
+        #{unitPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="currencyCode != null" >
+        #{currencyCode,jdbcType=VARCHAR},
+      </if>
+      <if test="priceMethod != null" >
+        #{priceMethod,jdbcType=VARCHAR},
+      </if>
+      <if test="minQuantity != null" >
+        #{minQuantity,jdbcType=DECIMAL},
+      </if>
+      <if test="maxQuantity != null" >
+        #{maxQuantity,jdbcType=DECIMAL},
+      </if>
+      <if test="unitQuantity != null" >
+        #{unitQuantity,jdbcType=DECIMAL},
+      </if>
+      <if test="uom != null" >
+        #{uom,jdbcType=VARCHAR},
+      </if>
+      <if test="taxIncluded != null" >
+        #{taxIncluded,jdbcType=VARCHAR},
+      </if>
+      <if test="befIncluded != null" >
+        #{befIncluded,jdbcType=VARCHAR},
+      </if>
+      <if test="insuranceIncluded != null" >
+        #{insuranceIncluded,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+</mapper>

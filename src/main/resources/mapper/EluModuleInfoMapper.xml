@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.liang.deng.dao.EluModuleInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.liang.deng.model.EluModuleInfo" >
+    <id column="module_code" property="moduleCode" jdbcType="INTEGER" />
+    <result column="module_name" property="moduleName" jdbcType="VARCHAR" />
+    <result column="description" property="description" jdbcType="VARCHAR" />
+    <result column="module_parent_code" property="moduleParentCode" jdbcType="INTEGER" />
+    <result column="module_url" property="moduleUrl" jdbcType="VARCHAR" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="del_flag" property="delFlag" jdbcType="BIT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    module_code, module_name, description, module_parent_code, module_url, update_time, 
+    create_time, del_flag
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 'false' as QUERYID,
+    <include refid="Base_Column_List" />
+    from elu_module_info
+    where module_code = #{moduleCode,jdbcType=INTEGER}
+  </select>
+  <insert id="insert" parameterType="com.liang.deng.model.EluModuleInfo" >
+    insert into elu_module_info (module_code, module_name, description, 
+      module_parent_code, module_url, update_time, 
+      create_time, del_flag)
+    values (#{moduleCode,jdbcType=INTEGER}, #{moduleName,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, 
+      #{moduleParentCode,jdbcType=INTEGER}, #{moduleUrl,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{delFlag,jdbcType=BIT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.liang.deng.model.EluModuleInfo" >
+    insert into elu_module_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="moduleCode != null" >
+        module_code,
+      </if>
+      <if test="moduleName != null" >
+        module_name,
+      </if>
+      <if test="description != null" >
+        description,
+      </if>
+      <if test="moduleParentCode != null" >
+        module_parent_code,
+      </if>
+      <if test="moduleUrl != null" >
+        module_url,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="moduleCode != null" >
+        #{moduleCode,jdbcType=INTEGER},
+      </if>
+      <if test="moduleName != null" >
+        #{moduleName,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null" >
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="moduleParentCode != null" >
+        #{moduleParentCode,jdbcType=INTEGER},
+      </if>
+      <if test="moduleUrl != null" >
+        #{moduleUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+</mapper>

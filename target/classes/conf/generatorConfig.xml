@@ -19,7 +19,8 @@
 		</javaTypeResolver>
 		
 		<javaModelGenerator targetPackage="com.liang.deng.model" targetProject="elu" >
-			<property name="enableSubPackage" value="true"/> 
+			<property name="enableSubPackage" value="true"/>
+			<property name="" value=""/>
 			<property name="trimString" value="true"/>
 		</javaModelGenerator>
 		
@@ -31,15 +32,91 @@
 			<property name="enableSubPackage" value="true"/>
 		</javaClientGenerator>
 		
-		
-		<table tableName="elu_route_detail" domainObjectName="EluRouteDetail" 
+		<table tableName="elu_commodity_bl" domainObjectName="eluCommodityBl" 
 			enableCountByExample="false" enableDeleteByExample="false"
 			enableSelectByExample ="false" enableUpdateByExample="false"
 			enableUpdateByPrimaryKey="false" enableDeleteByPrimaryKey="false"
-			selectByExampleQueryId ="false" selectByPrimaryKeyQueryId="false" >
+			selectByExampleQueryId ="true" selectByPrimaryKeyQueryId="false" >
 		</table>
 	
+			<table tableName="elu_commodity_hscode_info" domainObjectName="eluCommodityHscodeInfo" 
+			enableCountByExample="false" enableDeleteByExample="false"
+			enableSelectByExample ="false" enableUpdateByExample="false"
+			enableUpdateByPrimaryKey="false" enableDeleteByPrimaryKey="false"
+			selectByExampleQueryId ="true" selectByPrimaryKeyQueryId="false" >
+		</table>
 		
+				<table tableName="elu_commodity_wl" domainObjectName="EluCommodityWl" 
+			enableCountByExample="false" enableDeleteByExample="false"
+			enableSelectByExample ="false" enableUpdateByExample="false"
+			enableUpdateByPrimaryKey="false" enableDeleteByPrimaryKey="false"
+			selectByExampleQueryId ="true" selectByPrimaryKeyQueryId="false" >
+		</table>
+		
+				<table tableName="elu_module_info" domainObjectName="EluModuleInfo" 
+			enableCountByExample="false" enableDeleteByExample="false"
+			enableSelectByExample ="false" enableUpdateByExample="false"
+			enableUpdateByPrimaryKey="false" enableDeleteByPrimaryKey="false"
+			selectByExampleQueryId ="true" selectByPrimaryKeyQueryId="false" >
+		</table>
+		
+				<table tableName="elu_right_info" domainObjectName="EluRightInfo" 
+			enableCountByExample="false" enableDeleteByExample="false"
+			enableSelectByExample ="false" enableUpdateByExample="false"
+			enableUpdateByPrimaryKey="false" enableDeleteByPrimaryKey="false"
+			selectByExampleQueryId ="true" selectByPrimaryKeyQueryId="false" >
+		</table>
+		
+				<table tableName="elu_right_module_info" domainObjectName="EluRightModuleInfo" 
+			enableCountByExample="false" enableDeleteByExample="false"
+			enableSelectByExample ="false" enableUpdateByExample="false"
+			enableUpdateByPrimaryKey="false" enableDeleteByPrimaryKey="false"
+			selectByExampleQueryId ="true" selectByPrimaryKeyQueryId="false" >
+		</table>
+		
+				<table tableName="elu_role_info" domainObjectName="EluRoleInfo" 
+			enableCountByExample="false" enableDeleteByExample="false"
+			enableSelectByExample ="false" enableUpdateByExample="false"
+			enableUpdateByPrimaryKey="false" enableDeleteByPrimaryKey="false"
+			selectByExampleQueryId ="true" selectByPrimaryKeyQueryId="false" >
+		</table>
+		
+		
+				<table tableName="elu_role_right_info" domainObjectName="EluRoleRightInfo" 
+			enableCountByExample="false" enableDeleteByExample="false"
+			enableSelectByExample ="false" enableUpdateByExample="false"
+			enableUpdateByPrimaryKey="false" enableDeleteByPrimaryKey="false"
+			selectByExampleQueryId ="true" selectByPrimaryKeyQueryId="false" >
+		</table>
+		
+				<table tableName="elu_route_detail" domainObjectName="EluRouteDetail" 
+			enableCountByExample="false" enableDeleteByExample="false"
+			enableSelectByExample ="false" enableUpdateByExample="false"
+			enableUpdateByPrimaryKey="false" enableDeleteByPrimaryKey="false"
+			selectByExampleQueryId ="true" selectByPrimaryKeyQueryId="false" >
+		</table>
+		
+		
+				<table tableName="elu_route_price" domainObjectName="EluRoutePrice" 
+			enableCountByExample="false" enableDeleteByExample="false"
+			enableSelectByExample ="false" enableUpdateByExample="false"
+			enableUpdateByPrimaryKey="false" enableDeleteByPrimaryKey="false"
+			selectByExampleQueryId ="true" selectByPrimaryKeyQueryId="false" >
+		</table>
+		
+				<table tableName="elu_user_info" domainObjectName="EluUserInfo" 
+			enableCountByExample="false" enableDeleteByExample="false"
+			enableSelectByExample ="false" enableUpdateByExample="false"
+			enableUpdateByPrimaryKey="false" enableDeleteByPrimaryKey="false"
+			selectByExampleQueryId ="true" selectByPrimaryKeyQueryId="false" >
+		</table>
+		
+				<table tableName="elu_user_role_info" domainObjectName="EluUserRoleInfo" 
+			enableCountByExample="false" enableDeleteByExample="false"
+			enableSelectByExample ="false" enableUpdateByExample="false"
+			enableUpdateByPrimaryKey="false" enableDeleteByPrimaryKey="false"
+			selectByExampleQueryId ="true" selectByPrimaryKeyQueryId="false" >
+		</table>
 	</context>
 </generatorConfiguration>
 
