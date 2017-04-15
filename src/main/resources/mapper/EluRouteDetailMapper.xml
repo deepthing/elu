@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.liang.deng.dao.EluRouteDetailMapper" >
+  <resultMap id="BaseResultMap" type="com.liang.deng.model.EluRouteDetail" >
+    <id column="route_code" property="routeCode" jdbcType="INTEGER" />
+    <id column="s_no" property="sNo" jdbcType="INTEGER" />
+    <result column="route_name" property="routeName" jdbcType="VARCHAR" />
+    <result column="route_comment" property="routeComment" jdbcType="VARCHAR" />
+    <result column="supplier" property="supplier" jdbcType="VARCHAR" />
+    <result column="supplier_Method" property="supplierMethod" jdbcType="VARCHAR" />
+    <result column="location_from" property="locationFrom" jdbcType="VARCHAR" />
+    <result column="location_to" property="locationTo" jdbcType="VARCHAR" />
+    <result column="min_cycle_time" property="minCycleTime" jdbcType="TIMESTAMP" />
+    <result column="max_cycle_time" property="maxCycleTime" jdbcType="TIMESTAMP" />
+    <result column="bl_commodity_group" property="blCommodityGroup" jdbcType="VARCHAR" />
+    <result column="wl_commodity_group" property="wlCommodityGroup" jdbcType="VARCHAR" />
+    <result column="lost_percentage" property="lostPercentage" jdbcType="DECIMAL" />
+    <result column="damage_percenteage" property="damagePercenteage" jdbcType="DECIMAL" />
+    <result column="success_percenteage" property="successPercenteage" jdbcType="DECIMAL" />
+    <result column="user_rating" property="userRating" jdbcType="INTEGER" />
+    <result column="min_weight" property="minWeight" jdbcType="DECIMAL" />
+    <result column="max_weight" property="maxWeight" jdbcType="DECIMAL" />
+    <result column="min_volume" property="minVolume" jdbcType="DECIMAL" />
+    <result column="max_volume" property="maxVolume" jdbcType="DECIMAL" />
+    <result column="creat_time" property="creatTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="del_flag" property="delFlag" jdbcType="BIT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    route_code, s_no, route_name, route_comment, supplier, supplier_Method, location_from, 
+    location_to, min_cycle_time, max_cycle_time, bl_commodity_group, wl_commodity_group, 
+    lost_percentage, damage_percenteage, success_percenteage, user_rating, min_weight, 
+    max_weight, min_volume, max_volume, creat_time, update_time, del_flag
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="com.liang.deng.model.EluRouteDetailKey" >
+    select 'false' as QUERYID,
+    <include refid="Base_Column_List" />
+    from elu_route_detail
+    where route_code = #{routeCode,jdbcType=INTEGER}
+      and s_no = #{sNo,jdbcType=INTEGER}
+  </select>
+  <insert id="insert" parameterType="com.liang.deng.model.EluRouteDetail" >
+    insert into elu_route_detail (route_code, s_no, route_name, 
+      route_comment, supplier, supplier_Method, 
+      location_from, location_to, min_cycle_time, 
+      max_cycle_time, bl_commodity_group, wl_commodity_group, 
+      lost_percentage, damage_percenteage, success_percenteage, 
+      user_rating, min_weight, max_weight, 
+      min_volume, max_volume, creat_time, 
+      update_time, del_flag)
+    values (#{routeCode,jdbcType=INTEGER}, #{sNo,jdbcType=INTEGER}, #{routeName,jdbcType=VARCHAR}, 
+      #{routeComment,jdbcType=VARCHAR}, #{supplier,jdbcType=VARCHAR}, #{supplierMethod,jdbcType=VARCHAR}, 
+      #{locationFrom,jdbcType=VARCHAR}, #{locationTo,jdbcType=VARCHAR}, #{minCycleTime,jdbcType=TIMESTAMP}, 
+      #{maxCycleTime,jdbcType=TIMESTAMP}, #{blCommodityGroup,jdbcType=VARCHAR}, #{wlCommodityGroup,jdbcType=VARCHAR}, 
+      #{lostPercentage,jdbcType=DECIMAL}, #{damagePercenteage,jdbcType=DECIMAL}, #{successPercenteage,jdbcType=DECIMAL}, 
+      #{userRating,jdbcType=INTEGER}, #{minWeight,jdbcType=DECIMAL}, #{maxWeight,jdbcType=DECIMAL}, 
+      #{minVolume,jdbcType=DECIMAL}, #{maxVolume,jdbcType=DECIMAL}, #{creatTime,jdbcType=TIMESTAMP}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{delFlag,jdbcType=BIT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.liang.deng.model.EluRouteDetail" >
+    insert into elu_route_detail
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="routeCode != null" >
+        route_code,
+      </if>
+      <if test="sNo != null" >
+        s_no,
+      </if>
+      <if test="routeName != null" >
+        route_name,
+      </if>
+      <if test="routeComment != null" >
+        route_comment,
+      </if>
+      <if test="supplier != null" >
+        supplier,
+      </if>
+      <if test="supplierMethod != null" >
+        supplier_Method,
+      </if>
+      <if test="locationFrom != null" >
+        location_from,
+      </if>
+      <if test="locationTo != null" >
+        location_to,
+      </if>
+      <if test="minCycleTime != null" >
+        min_cycle_time,
+      </if>
+      <if test="maxCycleTime != null" >
+        max_cycle_time,
+      </if>
+      <if test="blCommodityGroup != null" >
+        bl_commodity_group,
+      </if>
+      <if test="wlCommodityGroup != null" >
+        wl_commodity_group,
+      </if>
+      <if test="lostPercentage != null" >
+        lost_percentage,
+      </if>
+      <if test="damagePercenteage != null" >
+        damage_percenteage,
+      </if>
+      <if test="successPercenteage != null" >
+        success_percenteage,
+      </if>
+      <if test="userRating != null" >
+        user_rating,
+      </if>
+      <if test="minWeight != null" >
+        min_weight,
+      </if>
+      <if test="maxWeight != null" >
+        max_weight,
+      </if>
+      <if test="minVolume != null" >
+        min_volume,
+      </if>
+      <if test="maxVolume != null" >
+        max_volume,
+      </if>
+      <if test="creatTime != null" >
+        creat_time,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="routeCode != null" >
+        #{routeCode,jdbcType=INTEGER},
+      </if>
+      <if test="sNo != null" >
+        #{sNo,jdbcType=INTEGER},
+      </if>
+      <if test="routeName != null" >
+        #{routeName,jdbcType=VARCHAR},
+      </if>
+      <if test="routeComment != null" >
+        #{routeComment,jdbcType=VARCHAR},
+      </if>
+      <if test="supplier != null" >
+        #{supplier,jdbcType=VARCHAR},
+      </if>
+      <if test="supplierMethod != null" >
+        #{supplierMethod,jdbcType=VARCHAR},
+      </if>
+      <if test="locationFrom != null" >
+        #{locationFrom,jdbcType=VARCHAR},
+      </if>
+      <if test="locationTo != null" >
+        #{locationTo,jdbcType=VARCHAR},
+      </if>
+      <if test="minCycleTime != null" >
+        #{minCycleTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="maxCycleTime != null" >
+        #{maxCycleTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="blCommodityGroup != null" >
+        #{blCommodityGroup,jdbcType=VARCHAR},
+      </if>
+      <if test="wlCommodityGroup != null" >
+        #{wlCommodityGroup,jdbcType=VARCHAR},
+      </if>
+      <if test="lostPercentage != null" >
+        #{lostPercentage,jdbcType=DECIMAL},
+      </if>
+      <if test="damagePercenteage != null" >
+        #{damagePercenteage,jdbcType=DECIMAL},
+      </if>
+      <if test="successPercenteage != null" >
+        #{successPercenteage,jdbcType=DECIMAL},
+      </if>
+      <if test="userRating != null" >
+        #{userRating,jdbcType=INTEGER},
+      </if>
+      <if test="minWeight != null" >
+        #{minWeight,jdbcType=DECIMAL},
+      </if>
+      <if test="maxWeight != null" >
+        #{maxWeight,jdbcType=DECIMAL},
+      </if>
+      <if test="minVolume != null" >
+        #{minVolume,jdbcType=DECIMAL},
+      </if>
+      <if test="maxVolume != null" >
+        #{maxVolume,jdbcType=DECIMAL},
+      </if>
+      <if test="creatTime != null" >
+        #{creatTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+</mapper>
