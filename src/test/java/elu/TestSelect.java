@@ -8,7 +8,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import com.liang.deng.dao.EluRouteDetailMapper;
 import com.liang.deng.service.CalRoute.FuzzySyntheticEvaluation;
 
-public class selectTest {
+public class TestSelect {
 	@Resource
 	EluRouteDetailMapper routeDeatilMapper;
 	public static void main(String args[]){

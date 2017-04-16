@@ -57,10 +57,11 @@ public class TCPEchoClientNonblocking {
 	byte[] remessage = readBuf.array();
 		// 打印出接收到的
 		System.out.println("Received: ");
-		for(byte a:remessage){
-			System.out.print(a);
+		for(int i=0;i<remessage.length-1;i++){
+			System.out.print(remessage[i]);
 			System.out.print(",");
 		}
+		System.out.print(remessage[remessage.length-1]);
 		// 关闭信道
 		clntChan.close();
 		return remessage;
