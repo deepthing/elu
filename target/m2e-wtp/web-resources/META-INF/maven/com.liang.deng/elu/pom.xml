@@ -176,6 +176,12 @@
 		    <artifactId>servlet-api</artifactId>
 		    <version>3.0-alpha-1</version>
 		</dependency>
+		<!-- jama java矩阵运算包 -->
+		<dependency>
+		    <groupId>gov.nist.math</groupId>
+		    <artifactId>jama</artifactId>
+		    <version>1.0.3</version>
+		</dependency>
 	</dependencies>
 
   <build>
