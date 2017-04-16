@@ -2,7 +2,9 @@ package com.liang.deng.model;
 
 import java.util.Date;
 
-public class EluCommodityBl extends EluCommodityBlKey {
+public class EluCommodityBl {
+    private Integer routeCode;
+
     private Integer blCommodityHscode;
 
     private Date uploadTime;
@@ -10,6 +12,14 @@ public class EluCommodityBl extends EluCommodityBlKey {
     private Date createTime;
 
     private Boolean delFlag;
+
+    public Integer getRouteCode() {
+        return routeCode;
+    }
+
+    public void setRouteCode(Integer routeCode) {
+        this.routeCode = routeCode;
+    }
 
     public Integer getBlCommodityHscode() {
         return blCommodityHscode;

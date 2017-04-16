@@ -3,7 +3,7 @@ package com.liang.deng.model;
 import java.util.Date;
 
 public class EluRightModuleInfo {
-    private Integer sNo;
+    private Integer id;
 
     private Integer rightCode;
 
@@ -15,12 +15,12 @@ public class EluRightModuleInfo {
 
     private Boolean delFlag;
 
-    public Integer getsNo() {
-        return sNo;
+    public Integer getId() {
+        return id;
     }
 
-    public void setsNo(Integer sNo) {
-        this.sNo = sNo;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public Integer getRightCode() {

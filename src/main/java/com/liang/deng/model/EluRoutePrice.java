@@ -2,7 +2,11 @@ package com.liang.deng.model;
 
 import java.util.Date;
 
-public class EluRoutePrice extends EluRoutePriceKey {
+public class EluRoutePrice {
+    private Integer id;
+
+    private String routeCode;
+
     private Long unitPrice;
 
     private String currencyCode;
@@ -28,6 +32,22 @@ public class EluRoutePrice extends EluRoutePriceKey {
     private Date createTime;
 
     private Boolean delFlag;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getRouteCode() {
+        return routeCode;
+    }
+
+    public void setRouteCode(String routeCode) {
+        this.routeCode = routeCode;
+    }
 
     public Long getUnitPrice() {
         return unitPrice;

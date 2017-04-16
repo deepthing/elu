@@ -3,7 +3,9 @@ package com.liang.deng.model;
 import java.util.Date;
 
 public class EluRouteDetail {
-    private Integer routeCode;
+    private Integer id;
+
+    private String routeCode;
 
     private String routeName;
 
@@ -47,11 +49,19 @@ public class EluRouteDetail {
 
     private Boolean delFlag;
 
-    public Integer getRouteCode() {
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getRouteCode() {
         return routeCode;
     }
 
-    public void setRouteCode(Integer routeCode) {
+    public void setRouteCode(String routeCode) {
         this.routeCode = routeCode;
     }
 

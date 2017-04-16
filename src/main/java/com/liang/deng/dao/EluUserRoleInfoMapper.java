@@ -7,5 +7,5 @@ public interface EluUserRoleInfoMapper {
 
     int insertSelective(EluUserRoleInfo record);
 
-    EluUserRoleInfo selectByPrimaryKey(Integer sNo);
+    EluUserRoleInfo selectByPrimaryKey(Integer id);
 }

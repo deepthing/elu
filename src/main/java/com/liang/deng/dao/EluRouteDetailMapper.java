@@ -7,5 +7,5 @@ public interface EluRouteDetailMapper {
 
     int insertSelective(EluRouteDetail record);
 
-    EluRouteDetail selectByPrimaryKey(Integer routeCode);
+    EluRouteDetail selectByPrimaryKey(Integer id);
 }

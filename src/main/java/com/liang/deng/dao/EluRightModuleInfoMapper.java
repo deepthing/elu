@@ -7,5 +7,5 @@ public interface EluRightModuleInfoMapper {
 
     int insertSelective(EluRightModuleInfo record);
 
-    EluRightModuleInfo selectByPrimaryKey(Integer sNo);
+    EluRightModuleInfo selectByPrimaryKey(Integer id);
 }

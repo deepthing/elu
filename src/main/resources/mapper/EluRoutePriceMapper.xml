@@ -2,8 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.liang.deng.dao.EluRoutePriceMapper" >
   <resultMap id="BaseResultMap" type="com.liang.deng.model.EluRoutePrice" >
-    <id column="route_code" property="routeCode" jdbcType="INTEGER" />
-    <id column="s_no" property="sNo" jdbcType="INTEGER" />
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="route_code" property="routeCode" jdbcType="VARCHAR" />
     <result column="unit_price" property="unitPrice" jdbcType="DECIMAL" />
     <result column="currency_code" property="currencyCode" jdbcType="VARCHAR" />
     <result column="price_method" property="priceMethod" jdbcType="VARCHAR" />
@@ -19,25 +19,24 @@
     <result column="del_flag" property="delFlag" jdbcType="BIT" />
   </resultMap>
   <sql id="Base_Column_List" >
-    route_code, s_no, unit_price, currency_code, price_method, min_quantity, max_quantity, 
+    id, route_code, unit_price, currency_code, price_method, min_quantity, max_quantity, 
     unit_quantity, uom, tax_included, bef_included, insurance_included, update_time, 
     create_time, del_flag
   </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="com.liang.deng.model.EluRoutePriceKey" >
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 'false' as QUERYID,
     <include refid="Base_Column_List" />
     from elu_route_price
-    where route_code = #{routeCode,jdbcType=INTEGER}
-      and s_no = #{sNo,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
   </select>
   <insert id="insert" parameterType="com.liang.deng.model.EluRoutePrice" >
-    insert into elu_route_price (route_code, s_no, unit_price, 
+    insert into elu_route_price (id, route_code, unit_price, 
       currency_code, price_method, min_quantity, 
       max_quantity, unit_quantity, uom, 
       tax_included, bef_included, insurance_included, 
       update_time, create_time, del_flag
       )
-    values (#{routeCode,jdbcType=INTEGER}, #{sNo,jdbcType=INTEGER}, #{unitPrice,jdbcType=DECIMAL}, 
+    values (#{id,jdbcType=INTEGER}, #{routeCode,jdbcType=VARCHAR}, #{unitPrice,jdbcType=DECIMAL}, 
       #{currencyCode,jdbcType=VARCHAR}, #{priceMethod,jdbcType=VARCHAR}, #{minQuantity,jdbcType=DECIMAL}, 
       #{maxQuantity,jdbcType=DECIMAL}, #{unitQuantity,jdbcType=DECIMAL}, #{uom,jdbcType=VARCHAR}, 
       #{taxIncluded,jdbcType=VARCHAR}, #{befIncluded,jdbcType=VARCHAR}, #{insuranceIncluded,jdbcType=VARCHAR}, 
@@ -47,11 +46,11 @@
   <insert id="insertSelective" parameterType="com.liang.deng.model.EluRoutePrice" >
     insert into elu_route_price
     <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
       <if test="routeCode != null" >
         route_code,
-      </if>
-      <if test="sNo != null" >
-        s_no,
       </if>
       <if test="unitPrice != null" >
         unit_price,
@@ -94,11 +93,11 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="routeCode != null" >
-        #{routeCode,jdbcType=INTEGER},
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
       </if>
-      <if test="sNo != null" >
-        #{sNo,jdbcType=INTEGER},
+      <if test="routeCode != null" >
+        #{routeCode,jdbcType=VARCHAR},
       </if>
       <if test="unitPrice != null" >
         #{unitPrice,jdbcType=DECIMAL},
