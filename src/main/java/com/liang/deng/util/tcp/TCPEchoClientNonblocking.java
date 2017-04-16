@@ -9,9 +9,7 @@ import com.google.common.base.Charsets;
 
 public class TCPEchoClientNonblocking {
 
-	private String host = "180.175.147.202";
-	private int port = 27001;
-	
+
 	public byte[] send(String host, byte[] message, int port) throws Exception {
 		// 第一个参数作为要连接的服务端的主机名或IP
 		String server = host;
@@ -28,7 +26,7 @@ public class TCPEchoClientNonblocking {
 			while (!clntChan.finishConnect()) {
 				// 在等待连接的时间里，可以执行其他任务，以充分发挥非阻塞IO的异步特性
 				// 这里为了演示该方法的使用，只是一直打印"."
-				System.out.print("'");
+//				System.out.print("'");
 			}
 		}
 		// 为了与后面打印的"."区别开来，这里输出换行符
@@ -54,17 +52,21 @@ public class TCPEchoClientNonblocking {
 			totalBytesRcvd += bytesRcvd;
 			// 在等待通信完成的过程中，程序可以执行其他任务，以体现非阻塞IO的异步特性
 			// 这里为了演示该方法的使用，同样只是一直打印"."
-			System.out.print(".");
+			//System.out.print(".");
 		}
 	byte[] remessage = readBuf.array();
 		// 打印出接收到的
-//		System.out.println("Received: ");
+		System.out.println("Received: ");
+		for(byte a:remessage){
+			System.out.print(a);
+			System.out.print(",");
+		}
 		// 关闭信道
 		clntChan.close();
 		return remessage;
 	}
 	
-	public byte[] summary(String data){
+	public byte[] summary(String host,int port ,String data){
 		try{
 			
 			byte[] input = data.getBytes(Charsets.UTF_8.displayName());
@@ -85,11 +87,9 @@ public class TCPEchoClientNonblocking {
 			e.printStackTrace();
 			return null;
 		}
-		
-		
 	}
 	
-	public String sign(String data){
+	public String sign(String host,int port,String data){
 		
 		try {
 			byte[] input = data.getBytes(Charsets.UTF_8.displayName());
@@ -97,7 +97,6 @@ public class TCPEchoClientNonblocking {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
 		return data;
 	}
 	

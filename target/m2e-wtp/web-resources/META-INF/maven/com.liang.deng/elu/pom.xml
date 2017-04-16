@@ -170,6 +170,12 @@
 		    <artifactId>guava</artifactId>
 		    <version>21.0</version>
 		</dependency>
+		<!-- java socket编程组件 -->
+		<dependency>
+		    <groupId>javax.servlet</groupId>
+		    <artifactId>servlet-api</artifactId>
+		    <version>3.0-alpha-1</version>
+		</dependency>
 	</dependencies>
 
   <build>

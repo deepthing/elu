@@ -23,6 +23,11 @@
 		<filter-name>encodingFilter</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
+	
+	<!-- socket server端口监听器 -->
+	<listener>
+		 <listener-class>com.liang.deng.service.TCP.SocketServiceLoader</listener-class>
+	</listener>
 	<!-- Spring监听器 -->
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
