@@ -50,11 +50,13 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>SpringMVC</servlet-name>
-		<!-- 此处可以可以配置成*.do，对应struts的后缀习惯 -->
-		<url-pattern>/</url-pattern>
+		<url-pattern>/elu</url-pattern>
 	</servlet-mapping>
+		<session-config>
+		<session-timeout>120</session-timeout>
+	</session-config>
 	<welcome-file-list>
-		<welcome-file>/index.jsp</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
 	</welcome-file-list>
 
 </web-app>

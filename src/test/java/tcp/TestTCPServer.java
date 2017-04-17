@@ -10,7 +10,6 @@ public class TestTCPServer {
 			String [] arg={"2002","2003","2004","2005"};
 			server.TCPServer(arg);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
