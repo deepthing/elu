@@ -9,7 +9,6 @@ import com.google.common.base.Charsets;
 
 public class TCPEchoClientNonblocking {
 
-
 	public byte[] send(String host, byte[] message, int port) throws Exception {
 		// 第一个参数作为要连接的服务端的主机名或IP
 		String server = host;
@@ -26,7 +25,7 @@ public class TCPEchoClientNonblocking {
 			while (!clntChan.finishConnect()) {
 				// 在等待连接的时间里，可以执行其他任务，以充分发挥非阻塞IO的异步特性
 				// 这里为了演示该方法的使用，只是一直打印"."
-//				System.out.print("'");
+				// System.out.print("'");
 			}
 		}
 		// 为了与后面打印的"."区别开来，这里输出换行符
@@ -52,46 +51,46 @@ public class TCPEchoClientNonblocking {
 			totalBytesRcvd += bytesRcvd;
 			// 在等待通信完成的过程中，程序可以执行其他任务，以体现非阻塞IO的异步特性
 			// 这里为了演示该方法的使用，同样只是一直打印"."
-			//System.out.print(".");
+			// System.out.print(".");
 		}
-	byte[] remessage = readBuf.array();
+		byte[] remessage = readBuf.array();
 		// 打印出接收到的
 		System.out.println("Received: ");
-		for(int i=0;i<remessage.length-1;i++){
+		for (int i = 0; i < remessage.length - 1; i++) {
 			System.out.print(remessage[i]);
 			System.out.print(",");
 		}
-		System.out.print(remessage[remessage.length-1]);
+		System.out.print(remessage[remessage.length - 1]);
 		// 关闭信道
 		clntChan.close();
 		return remessage;
 	}
-	
-	public byte[] summary(String host,int port ,String data){
-		try{
-			
+
+	public byte[] summary(String host, int port, String data) {
+		try {
+
 			byte[] input = data.getBytes(Charsets.UTF_8.displayName());
 			int len = input.length;
-			
-			
+
 			byte[] head1 = "3C1".getBytes();
-			byte[] head2 = {(byte) ((len/1000)+48),(byte) (((len%1000)/100)+48),(byte) (((len%100)/10)+48),(byte) ((len%10)+48)};
-			byte[] head = byteMerger(head1,head2);
-			byte[] message = byteMerger(head,input);
-			byte[]length ={(byte) (message.length/256),(byte) (message.length%256)};
-			byte[] mess = byteMerger(length,message);
-			byte[] result =   send(host,mess,port);
-			
-			return result ;
-			
-		}catch(Exception e){
+			byte[] head2 = { (byte) ((len / 1000) + 48), (byte) (((len % 1000) / 100) + 48),
+					(byte) (((len % 100) / 10) + 48), (byte) ((len % 10) + 48) };
+			byte[] head = byteMerger(head1, head2);
+			byte[] message = byteMerger(head, input);
+			byte[] length = { (byte) (message.length / 256), (byte) (message.length % 256) };
+			byte[] mess = byteMerger(length, message);
+			byte[] result = send(host, mess, port);
+
+			return result;
+
+		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
 		}
 	}
-	
-	public String sign(String host,int port,String data){
-		
+
+	public String sign(String host, int port, String data) {
+
 		try {
 			byte[] input = data.getBytes(Charsets.UTF_8.displayName());
 			send(host, input, port);
@@ -100,14 +99,13 @@ public class TCPEchoClientNonblocking {
 		}
 		return data;
 	}
-	
-	// 合并两个byte数组  
-	   public static byte[] byteMerger(byte[] byte_1, byte[] byte_2){  
-	       byte[] byte_3 = new byte[byte_1.length+byte_2.length];  
-	       System.arraycopy(byte_1, 0, byte_3, 0, byte_1.length);  
-	       System.arraycopy(byte_2, 0, byte_3, byte_1.length, byte_2.length);  
-	        return byte_3;  
-	   }  
 
+	// 合并两个byte数组
+	public static byte[] byteMerger(byte[] byte_1, byte[] byte_2) {
+		byte[] byte_3 = new byte[byte_1.length + byte_2.length];
+		System.arraycopy(byte_1, 0, byte_3, 0, byte_1.length);
+		System.arraycopy(byte_2, 0, byte_3, byte_1.length, byte_2.length);
+		return byte_3;
+	}
 
 }
